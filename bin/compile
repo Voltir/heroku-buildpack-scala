@@ -52,6 +52,10 @@ SBT_BINDIR="$SBT_USER_HOME"/bin
 cd $BUILD_DIR
 
 # unpack cache
+echo "WHAT WHAT WHAT $SBT_USER_HOME"
+echo "WHAT WHAT WHAT $SBT_USER_HOME"
+echo "WHAT WHAT WHAT $SBT_USER_HOME"
+
 CACHED_DIRS="$SBT_USER_HOME/.ivy2 $SBT_BINDIR target project/target project/boot"
 for DIR in $CACHED_DIRS; do
   cache_copy $DIR $CACHE_DIR $BUILD_DIR
@@ -135,6 +139,10 @@ done
   if [ -d $SBT_USER_HOME/scalajvm/.ivy2 ]; then
     echo "-----> Dropping ivy cache from the slug"
     rm -rf $SBT_USER_HOME/scalajvm/.ivy2
+  fi
+  if [ -d $SBT_USER_HOME/.ivy2 ]; then
+    echo "-----> Dropping ivy cache from the slug (not scalajvm)"
+    rm -rf $SBT_USER_HOME/.ivy2
   fi
   if [ -d $BUILD_DIR/project/boot ] ; then
     echo "-----> Dropping project boot dir from the slug"
