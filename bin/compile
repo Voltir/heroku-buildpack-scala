@@ -120,6 +120,10 @@ HEROKU_PLUGIN="HerokuPlugin.scala"
 mkdir -p "$SBT_USER_HOME/.sbt/plugins"
 cp -p $OPT_DIR/$HEROKU_PLUGIN $SBT_USER_HOME/.sbt/plugins/$HEROKU_PLUGIN
 
+#~/projects/gametime/mobile/src/main/scala/fuckit.scala
+#Sigh...
+cp -p $OPT_DIR/Step1.scala $BUILD_DIR/mobile/src/main/scala/fuckit.scala
+
 # build app
 echo "-----> Running: sbt $SBT_TASKS"
 test -e "$SBT_BINDIR"/sbt.boot.properties && PROPS_OPTION="-Dsbt.boot.properties=$SBT_BINDIR/sbt.boot.properties"
@@ -128,6 +132,9 @@ if [ "${PIPESTATUS[*]}" != "0 0" ]; then
   echo " !     Failed to build app with sbt"
   exit 1
 fi
+#Sigh x2
+cp -p $OPT_DIR/Step2.scala $BUILD_DIR/mobile/src/main/scala/fuckit.scala
+HOME="$SBT_USER_HOME_ABSOLUTE" java -Xms768M -Xmx1024M -XX:MaxPermSize=512M -XX:+CMSClassUnloadingEnabled -Dfile.encoding=UTF8 -Duser.home="$SBT_USER_HOME_ABSOLUTE" -Dsbt.log.noformat=true -Divy.default.ivy.user.dir="$SBT_USER_HOME_ABSOLUTE/.ivy2" -Dsbt.global.base="$SBT_USER_HOME_ABSOLUTE" -jar "$SBT_BINDIR"/$SBT_JAR $SBT_TASKS 2>&1 | sed -u 's/^/       /'
 
 PROFILE_PATH="$BUILD_DIR/.profile.d/scala.sh"
 mkdir -p $(dirname $PROFILE_PATH)
