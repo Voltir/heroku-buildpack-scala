@@ -134,6 +134,7 @@ if [ "${PIPESTATUS[*]}" != "0 0" ]; then
 fi
 #Sigh x2
 cp -p $OPT_DIR/Step2.scala $BUILD_DIR/mobile/src/main/scala/fuckit.scala
+SBT_TASKS="compile stage"
 HOME="$SBT_USER_HOME_ABSOLUTE" java -Xms768M -Xmx1024M -XX:MaxPermSize=512M -XX:+CMSClassUnloadingEnabled -Dfile.encoding=UTF8 -Duser.home="$SBT_USER_HOME_ABSOLUTE" -Dsbt.log.noformat=true -Divy.default.ivy.user.dir="$SBT_USER_HOME_ABSOLUTE/.ivy2" -Dsbt.global.base="$SBT_USER_HOME_ABSOLUTE" -jar "$SBT_BINDIR"/$SBT_JAR $SBT_TASKS 2>&1 | sed -u 's/^/       /'
 
 PROFILE_PATH="$BUILD_DIR/.profile.d/scala.sh"
