@@ -136,13 +136,12 @@ if [ ! -d "$SBT_USER_HOME/.ivy2" ]; then
   fi
 fi
 
-ls -al $BUILD_DIR/sitejvm/target/web/public/main/lib/foundation/scss/foundation/components
-ls -al $BUILD_DIR/sitejvm/target/web/public/main/lib/foundation/scss/foundation/components
-ls -al $BUILD_DIR/sitejvm/target/web/public/main/lib/foundation/scss/foundation/components
-ls -al $BUILD_DIR/sitejvm/target/web/public/main/lib/foundation/scss/foundation/components
-ls -al $BUILD_DIR/sitejvm/target/web/public/main/lib/foundation/scss/foundation/components
-ls -al $BUILD_DIR/sitejvm/target/web/public/main/lib/foundation/scss/foundation/components
-ls -al $BUILD_DIR/sitejvm/target/web/public/main/lib/foundation/scss/foundation/components
+echo "First...."
+ls -al $BUILD_DIR
+echo "Second...."
+ls -al $SBT_USER_HOME_ABSOLUTE
+echo "Third..."
+ls -al $CACHE_DIR
 
 # build app
 run_sbt "$SBT_USER_HOME_ABSOLUTE" "$SBT_BINDIR/$SBT_JAR" "$SBT_TASKS"
