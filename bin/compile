@@ -123,9 +123,6 @@ cp -p $OPT_DIR/$HEROKU_PLUGIN $SBT_USER_HOME/.sbt/plugins/$HEROKU_PLUGIN
 #~/projects/gametime/mobile/src/main/scala/fuckit.scala
 #Sigh...
 cp -p $OPT_DIR/Step1.scala $BUILD_DIR/mobile/src/main/scala/fuckit.scala
-ls -al  $OPT_DIR/Step1.scala
-ls -al  $OPT_DIR/Step1.scala
-ls -al  $OPT_DIR/Step1.scala
 
 # download and cache the dependencies if this is the first build
 if [ ! -d "$SBT_USER_HOME/.ivy2" ]; then
