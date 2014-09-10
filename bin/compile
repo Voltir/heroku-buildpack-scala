@@ -31,29 +31,9 @@ gem install -i $CACHE_DIR/.gems --no-rdoc sass --version 3.3.11
 export PATH=$PATH:$CACHE_DIR/.gems/bin
 export GEM_PATH=$GEM_PATH:$CACHE_DIR/.gems
 
+echo "IF THIS IS NOT 3.3.11 YOU WILL BE VERY UNHAPPY!"
 sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
-sass -version
+
 # create default system.properties
 if [ ! -f ${BUILD_DIR}/system.properties ]; then
   echo "java.runtime.version=1.6" > ${BUILD_DIR}/system.properties
