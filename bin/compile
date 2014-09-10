@@ -60,7 +60,7 @@ echo "WHAT WHAT WHAT $SBT_USER_HOME"
 echo "WHAT WHAT WHAT $SBT_USER_HOME"
 echo "WHAT WHAT WHAT $SBT_USER_HOME"
 
-CACHED_DIRS="$SBT_USER_HOME/.ivy2 $SBT_USER_HOME/boot $SBT_BINDIR target project/target project/boot"
+CACHED_DIRS="$SBT_USER_HOME/.ivy2 $SBT_USER_HOME/boot $SBT_BINDIR target project/target project/boot sitejvm/target"
 
 for DIR in $CACHED_DIRS; do
   cache_copy $DIR $CACHE_DIR $BUILD_DIR
@@ -153,9 +153,9 @@ done
 
 # drop useless directories from slug for play and sbt-native-launcher only
 #if is_sbt_native_packager $BUILD_DIR || is_play $BUILD_DIR; then
-  if [ -d $SBT_USER_HOME/scalajvm/.ivy2 ]; then
+  if [ -d $SBT_USER_HOME/sitejvm/.ivy2 ]; then
     echo "-----> Dropping ivy cache from the slug"
-    rm -rf $SBT_USER_HOME/scalajvm/.ivy2
+    rm -rf $SBT_USER_HOME/sitejvm/.ivy2
   fi
   if [ -d $SBT_USER_HOME/.ivy2 ]; then
     echo "-----> Dropping ivy cache from the slug (not scalajvm)"
@@ -165,11 +165,11 @@ done
     echo "-----> Dropping project boot dir from the slug"
     rm -rf $BUILD_DIR/project/boot
   fi
-  if [ -d $BUILD_DIR/scalajvm/target ] ; then
+  if [ -d $BUILD_DIR/sitejvm/target ] ; then
     echo "-----> Dropping compilation artifacts from the slug"
-    rm -rf $BUILD_DIR/scalajvm/target/scala-*
-    rm -rf $BUILD_DIR/scalajvm/target/streams
-    rm -rf $BUILD_DIR/scalajvm/target/resolution-cache
+    rm -rf $BUILD_DIR/sitejvm/target/scala-*
+    rm -rf $BUILD_DIR/sitejvm/target/streams
+    rm -rf $BUILD_DIR/sitejvm/target/resolution-cache
   fi
 #fi
 
