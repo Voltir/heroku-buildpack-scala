@@ -139,7 +139,7 @@ fi
 run_sbt "$SBT_USER_HOME_ABSOLUTE" "$SBT_BINDIR/$SBT_JAR" "$SBT_TASKS"
 
 #Sigh x2
-cp -p $OPT_DIR/Step2.scala $BUILD_DIR/mobile/src/main/scala/forceit.scala
+cp -p $OPT_DIR/Step2.scala $BUILD_DIR/shared/shared/forceit.scala
 SBT_TASKS="compile stage"
 run_sbt "$SBT_USER_HOME_ABSOLUTE" "$SBT_BINDIR/$SBT_JAR" "$SBT_TASKS"
 
